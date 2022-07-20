@@ -320,20 +320,64 @@ lp2r{a} '''.format(a=x) + self.r1 + '''
     incar1	(000 110 0 x)
   loop, lp1r{a}	(000 110 0 x)
 '''.format(a=x)
+
+        # Write 1
+        code_all_w0 = \
+            lambda x: '''
+  //清除所有，all set 1
+  ldar1, 0	(000 110 0 x)
+  ldar2, 0	(000 110 0 x)
+  ldc, 511	(000 110 0 x)
+lp1x{a}	inc	(000 110 0 x) //对所有单元格写1
+  ldc, 511	(000 110 0 x) 
+lp2x{a} '''.format(a=x) + self.w0 + '''
+  incar1	(000 110 0 x)
+  incar2	(000 110 0 x)
+  loop, lp2x{a}	(000 110 0 x)
+    incar1	(000 110 0 x)
+  loop, lp1x{a}	(000 110 0 x)
+'''.format(a=x)
+        # Read 0
+        code_all_r0 = \
+            lambda x: '''
+  //读取所有，all set 1
+  ldar1, 0	(000 110 0 x)
+  ldar2, 0	(000 110 0 x)
+  ldc, 511	(000 110 0 x)
+lp1r{a}	inc	(000 110 0 x) //对所有单元格写1
+  ldc, 511	(000 110 0 x) 
+lp2r{a} '''.format(a=x) + self.r0 + '''
+  incar1	(000 110 0 x)
+  incar2	(000 110 0 x)
+  loop, lp2r{a}	(000 110 0 x)
+    incar1	(000 110 0 x)
+  loop, lp1r{a}	(000 110 0 x)
+'''.format(a=x)
         self.f.write(self.file_header)  # 程序头
         self.f.write(self.code_other)  # 非功能测试
-        for diag_group in range(52):
-            self.f.write(self.start_index(diag_group + 13))
-            self.f.write(code_all_clear(diag_group))
-            for diag_num in range(10 * diag_group, 512 if 10 * diag_group + 10 > 512 else 10 * diag_group + 10):
-                diag_code = self.diagonal_line(diag_num)
-                self.f.write(diag_code)
-            self.f.write(self.halt)
-        test_64 = self.start_index(65) + code_all_clear(65) + code_all_read(65) + self.halt
-        self.f.write(test_64)
 
+        # 分立向量块
+        # for diag_group in range(52):
+        #     self.f.write(self.start_index(diag_group + 13))
+        #     self.f.write(code_all_clear(diag_group))
+        #     for diag_num in range(10 * diag_group, 512 if 10 * diag_group + 10 > 512 else 10 * diag_group + 10):
+        #         diag_code = self.diagonal_line(diag_num)
+        #         self.f.write(diag_code)
+        #     self.f.write(self.halt)
+        #
+
+        # 整体写1读1
+        test_w1r1 = self.start_index(65) + code_all_clear(65) + code_all_read(65) + self.halt
+        self.f.write(test_w1r1)
+
+        # 整体写0读0
+        test_w0r0 = self.start_index(66) + code_all_w0(66) + code_all_r0(66) + self.halt
+        self.f.write(test_w0r0)
+
+        # FUN_LOOP 写法
         test_fun_loop = self.start_index(67) + self.code_fun_loop + self.halt
         self.f.write(test_fun_loop)
+
         self.f.write(self.file_end)  # 程序结尾
 
     def __del__(self):
