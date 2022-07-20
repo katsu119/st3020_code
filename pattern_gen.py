@@ -25,33 +25,38 @@ main_f
         self.start_index = lambda num: '\nstart_index({})\n'.format(num)
         self.halt = '  halt  (000 111 0 x) \n'
         self.w0 = \
-            '''  addr1   (000 110 0 x)
-  inc     (000 010 0 x)
-  addr2   (000 010 0 x)
-  inc     (000 000 0 x)
-  inc     (000 111 1 x)
-  '''
+            ''' inc (000 110 1 x)
+ addr1 (000 010 0 x)
+ addr2 (000 000 0 x)
+ inc (000 000 0 x)
+ inc (000 011 0 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)'''
+
         self.w1 = \
-            '''  addr1   (000 110 1 x)
-  inc     (000 010 1 x)
-  addr2   (000 010 1 x)
-  inc     (000 000 1 x)
-  inc     (000 111 1 x)
-  '''
+            ''' inc (000 110 1 x)
+ addr1 (000 010 1 x)
+ addr2 (000 000 1 x)
+ inc (000 000 1 x)
+ inc (000 011 1 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)'''
         self.r0 = \
-            '''  addr1   (000 111 0 x)
-  inc     (000 011 0 x)
-  addr2   (000 011 0 x)
-  inc     (000 001 0 L)
-  inc     (000 111 1 x)
-  '''
+            ''' inc (000 111 1 x) //Init State
+ addr1 (000 011 1 x) //Row Addr
+ addr2 (000 001 1 x) //Col Addr
+ inc (000 001 1 L) //Test Q For L
+ inc (000 011 1 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)'''
         self.r1 = \
-            '''  addr1   (000 111 x x)
-  inc     (000 011 x x)
-  addr2   (000 011 x x)
-  inc     (000 001 x H)
-  inc     (000 111 1 x)
-  '''
+            ''' inc (000 111 1 x) //Init State
+ addr1 (000 011 1 x) //Row Addr
+ addr2 (000 001 1 x) //Col Addr
+ inc (000 001 1 H) //Test Q For H
+ inc (000 011 1 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)'''
         self.incar1 = "	incar1	(000 110 0 x)\n"
         self.incar2 = "	incar2	(000 110 0 x)\n"
         self.code_other = \
@@ -246,51 +251,44 @@ main_f
       '''
 
     def diagonal_line(self, line_n):
+
+        # Write 0
         code_diag_write = \
             '''
   //第{a}条对角线写0
   ldar1, 0	(000 110 0 x)
   ldar2, {col}	(000 110 0 x)
   ldc, 511 (000 110 0 x) //当前对角线写0
-w{a}  addr1  (000 110 0 x)
-  inc     (000 010 0 x)
-  addr2   (000 010 0 x)
-  inc     (000 000 0 x)
-  inc     (000 111 1 x)
+w{a} ''' + self.w0 + '''
   incar1	(000 110 0 x)
   incar2	(000 110 0 x)
   loop, w{a}	(000 110 0 x)
 '''.format(col=line_n, a=line_n)
+        # Write 1
         code_diag_clear = \
             '''
   //第{a}条对角线置1
   ldar1, 0	(000 110 0 x)
   ldar2, {col}	(000 110 0 x)
   ldc, 511 (000 110 0 x) //当前对角线写1
-x{a}  addr1  (000 110 1 x)
-  inc     (000 010 1 x)
-  addr2   (000 010 1 x)
-  inc     (000 000 1 x)
-  inc     (000 111 1 x)
+x{a}  ''' + self.w1 + '''
   incar1	(000 110 0 x)
   incar2	(000 110 0 x)
   loop, x{a}	(000 110 0 x)
 '''.format(col=line_n, a=line_n)
+        # Read 0
         code_diag_read = \
             '''
   //第{x}条对角线--读取验证
   ldar1, 0	(000 110 0 x)
   ldar2, {col}	(000 110 0 x)
   ldc, 511 (000 110 0 x)
-rdiag{x} addr1   (000 111 0 x) //读取数据进行验证--对角线
-  inc     (000 011 0 x)
-  addr2   (000 011 0 x)
-  inc     (000 001 0 L)
-  inc     (000 111 1 x)
+rdiag{x} ''' + self.r0 + '''
   incar1	(000 110 0 x)
   incar2	(000 110 0 x)
   loop, rdiag{x}	(000 110 0 x)
 '''.format(col=line_n, x=line_n)
+        # Read 1
         code_background_read = \
             '''
   //第{x}条对角线--读取背景验证
@@ -299,11 +297,7 @@ rdiag{x} addr1   (000 111 0 x) //读取数据进行验证--对角线
   ldc, 511     (000 110 x x)//读取数据进行验证--背景
 bg1r{x} incar1	(000 110 x x) 
   ldc, 511     (000 110 x x)
-bg2r{x} addr1   (000 111 x x)
-  inc     (000 011 x x)
-  addr2   (000 011 x x)
-  inc     (000 001 x H)
-  inc     (000 111 1 x)
+bg2r{x} ''' + self.r1 + '''
   incar1	(000 110 x x)
   incar2	(000 110 x x)
   loop, bg2r{x}	(000 110 x x)
@@ -313,6 +307,7 @@ bg2r{x} addr1   (000 111 x x)
         return code_diag_write + code_diag_read + code_background_read + code_diag_clear
 
     def code_gen(self):
+        # Write 1
         code_all_clear = \
             lambda x: '''
   //清除所有，all set 1
@@ -321,17 +316,14 @@ bg2r{x} addr1   (000 111 x x)
   ldc, 511	(000 110 0 x)
 lp1x{a}	inc	(000 110 0 x) //对所有单元格写1
   ldc, 511	(000 110 0 x) 
-lp2x{a} addr1   (000 110 1 x)
-  inc     (000 010 1 x)
-  addr2   (000 010 1 x)
-  inc     (000 000 1 x)
-  inc     (000 111 1 x)
+lp2x{a} ''' + self.w1 + '''
   incar1	(000 110 0 x)
   incar2	(000 110 0 x)
   loop, lp2x{a}	(000 110 0 x)
     incar1	(000 110 0 x)
   loop, lp1x{a}	(000 110 0 x)
 '''.format(a=x)
+        # Read 1
         code_all_read = \
             lambda x: '''
   //读取所有，all set 1
@@ -340,19 +332,15 @@ lp2x{a} addr1   (000 110 1 x)
   ldc, 511	(000 110 0 x)
 lp1r{a}	inc	(000 110 0 x) //对所有单元格写1
   ldc, 511	(000 110 0 x) 
-lp2r{a} addr1   (000 111 1 x)
-  inc     (000 011 1 x)
-  addr2   (000 011 1 x)
-  inc     (000 001 1 H)
-  inc     (000 111 1 x)
+lp2r{a} ''' + self.r1 + '''
   incar1	(000 110 0 x)
   incar2	(000 110 0 x)
   loop, lp2r{a}	(000 110 0 x)
     incar1	(000 110 0 x)
   loop, lp1r{a}	(000 110 0 x)
 '''.format(a=x)
-        self.f.write(self.file_header)
-        self.f.write(self.code_other)
+        self.f.write(self.file_header)  # 程序头
+        self.f.write(self.code_other)  # 非功能测试
         for diag_group in range(52):
             self.f.write(self.start_index(diag_group + 13))
             self.f.write(code_all_clear(diag_group))
@@ -366,7 +354,7 @@ lp2r{a} addr1   (000 111 1 x)
         self.f.write(test_error)
         test_fun_loop = self.start_index(67) + self.code_fun_loop + self.halt
         self.f.write(test_fun_loop)
-        self.f.write(self.file_end)
+        self.f.write(self.file_end)  # 程序结尾
 
     def __del__(self):
         print("Deconstruct Sphere Class Instance")
