@@ -1,0 +1,300 @@
+mem_source_15;
+
+pindef
+
+addr(0..8) = i, hex, (1,2,3,4,5,6,7,8,9)
+ras_ = i, bin, (46)
+cas_ = i, bin, (45)
+w_ = i, bin, (44)
+
+d = i, bin, (35)
+q = o, bin, (36)
+
+main_f
+//ADDR1 as row
+//ADDR2 as colum
+
+start_index(1)    //VOH
+  //AAA RCW DQ
+  inc   (000 110 1 x)
+  inc   (000 010 1 x)
+  inc   (000 000 1 x) //写入000处 1
+  inc   (000 111 1 x)
+  inc   (000 111 1 x)
+  inc   (000 011 1 x)
+  inc   (000 001 1 x)
+  halt  (000 001 1 x)
+
+start_index(2)   //VOL
+  //AAA RCW DQ
+  inc   (000 110 0 x)
+  inc   (000 110 0 x)
+  inc   (000 010 0 x)
+  inc   (000 000 0 x) //写入000处 0
+  inc   (000 111 0 x)
+  inc   (000 111 0 x)
+  inc   (000 011 0 x)
+  inc   (000 001 0 x)
+  halt  (000 001 0 x) 
+
+
+start_index(3)  //IIL
+  //AAA RCW DQ
+  inc   (111 111 1 x)
+  inc   (111 111 1 x)
+  inc   (111 111 1 x)
+  inc   (111 111 1 x)
+  halt  (111 111 1 x)
+
+start_index(4)  //IIH
+  //AAA RCW DQ
+  inc   (000 000 0 x)
+  inc   (000 000 0 x)
+  inc   (000 000 0 x)
+  inc   (000 000 0 x)
+  halt  (000 000 0 x)
+
+start_index(5)  //IO
+  //AAA RCW DQ
+  INC   (xxx x1x x x)
+  INC   (xxx x1x x x)
+  INC   (xxx x1x x x)
+  INC   (xxx x1x x x)
+  HALT  (xxx x1x x x)
+
+
+
+start_index(6)    //IDD1-W
+  //AAA RCW DQ
+  INC   (000 110 0 x)
+  INC   (000 010 0 x)
+  INC   (000 000 0 x)
+  HALT  (000 010 0 x) 
+
+START_INDEX(7)    //IDD1-Re
+  //AAA RCW DQ
+  INC   (000 111 0 x)
+  INC   (000 011 0 x)
+  INC   (000 001 0 x)
+  HALT  (000 011 0 x)
+
+start_index(8)   //IDD2-Wr
+  //AAA RCW DQ
+  INC   (000 110 0 x)
+  INC   (000 010 0 x)
+  INC   (000 000 0 x)
+  INC   (000 010 0 x)
+  HALT  (000 110 0 x)
+
+START_INDEX(9)    //IDD2-Re
+  //AAA RCW DQ
+  INC   (000 111 0 x)
+  INC   (000 011 0 x)
+  INC   (000 001 0 x)
+  INC   (000 011 0 x)
+  HALT  (000 111 0 x)
+
+start_index(10)  //IDD3
+  //AAA RCW DQ
+  LDF   (000 101 0 x)
+A1 INC  (000 011 0 x)
+  INC   (000 111 0 x)  
+  JMP,A1 (000 011 0 x)
+  HALT  (000 111 0 x)
+
+start_index(11)   //page Re
+  //AAA RCW DQ
+  LDF   (000 111 0 x)
+C1 INC  (000 011 0 x)
+  INC   (000 001 0 x)
+  JMP,C1 (000 011 0 x)  
+  HALT  (000 011 0 x)
+
+start_index(12)   //page Wr
+  //AAA RCW DQ
+  LDF   (000 110 0 x)
+D1 INC  (000 010 0 x)
+  INC   (000 000 0 x)
+  JMP,D1 (000 010 0 x)  
+  HALT  (000 010 0 x)
+ 
+start_index(65)
+
+  //清除所有，all set 1
+  ldar1, 0	(000 110 0 x)
+  ldar2, 0	(000 110 0 x)
+  ldc, 511	(000 110 0 x)
+lp1x65	inc	(000 110 0 x) //对所有单元格写1
+  ldc, 511	(000 110 0 x) 
+lp2x65  inc (000 110 1 x)
+ addr1 (000 010 1 x)
+ addr2 (000 000 1 x)
+ inc (000 000 1 x)
+ inc (000 011 1 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)
+  incar1	(000 110 0 x)
+  incar2	(000 110 0 x)
+  loop, lp2x65	(000 110 0 x)
+    incar1	(000 110 0 x)
+  loop, lp1x65	(000 110 0 x)
+
+  //读取所有，all set 1
+  ldar1, 0	(000 110 0 x)
+  ldar2, 0	(000 110 0 x)
+  ldc, 511	(000 110 0 x)
+lp1r65	inc	(000 110 0 x) //对所有单元格写1
+  ldc, 511	(000 110 0 x) 
+lp2r65  inc (000 111 1 x) //Init State
+ addr1 (000 011 1 x) //Row Addr
+ addr2 (000 001 1 x) //Col Addr
+ inc (000 001 1 H) //Test Q For H
+ inc (000 011 1 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)
+  incar1	(000 110 0 x)
+  incar2	(000 110 0 x)
+  loop, lp2r65	(000 110 0 x)
+    incar1	(000 110 0 x)
+  loop, lp1r65	(000 110 0 x)
+  
+ halt  (000 111 0 x) 
+
+start_index(66)
+
+  //清除所有，all set 1
+  ldar1, 0	(000 110 0 x)
+  ldar2, 0	(000 110 0 x)
+  ldc, 511	(000 110 0 x)
+lp1x66	inc	(000 110 0 x) //对所有单元格写1
+  ldc, 511	(000 110 0 x) 
+lp2x66  inc (000 110 1 x)
+ addr1 (000 010 0 x)
+ addr2 (000 000 0 x)
+ inc (000 000 0 x)
+ inc (000 011 0 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)
+  incar1	(000 110 0 x)
+  incar2	(000 110 0 x)
+  loop, lp2x66	(000 110 0 x)
+    incar1	(000 110 0 x)
+  loop, lp1x66	(000 110 0 x)
+
+  //读取所有，all set 1
+  ldar1, 0	(000 110 0 x)
+  ldar2, 0	(000 110 0 x)
+  ldc, 511	(000 110 0 x)
+lp1r66	inc	(000 110 0 x) //对所有单元格写1
+  ldc, 511	(000 110 0 x) 
+lp2r66  inc (000 111 1 x) //Init State
+ addr1 (000 011 1 x) //Row Addr
+ addr2 (000 001 1 x) //Col Addr
+ inc (000 001 1 L) //Test Q For L
+ inc (000 011 1 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)
+  incar1	(000 110 0 x)
+  incar2	(000 110 0 x)
+  loop, lp2r66	(000 110 0 x)
+    incar1	(000 110 0 x)
+  loop, lp1r66	(000 110 0 x)
+  
+ halt  (000 111 0 x) 
+
+start_index(67)
+
+  //功能测试
+  ldar1, 0	(000 110 0 x)
+  ldar2, 0	(000 110 0 x)
+
+  ldc, 511	(000 110 0 x)  //写1
+lp1	inc	(000 110 0 x) //对所有单元格写1
+  ldc, 511	(000 110 0 x)
+lp2  inc (000 110 1 x)
+ addr1 (000 010 1 x)
+ addr2 (000 000 1 x)
+ inc (000 000 1 x)
+ inc (000 011 1 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)
+  incar1	(000 110 0 x)
+  incar2	(000 110 0 x)
+  loop, lp2	(000 110 0 x)
+    incar1	(000 110 0 x)
+  loop, lp1	(000 110 0 x)
+
+
+  ldar1, 0	(000 110 0 x)
+  ldar2, 0	(000 110 0 x)
+  ldc, 511  (000 110 0 x)
+f inc     (000 110 0 x) //对角线大循环
+
+  ldc, 511 (000 110 0 x) //当前对角线写0
+a  inc (000 110 1 x)
+ addr1 (000 010 0 x)
+ addr2 (000 000 0 x)
+ inc (000 000 0 x)
+ inc (000 011 0 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)
+  incar1	(000 110 0 x)
+  incar2	(000 110 0 x)
+  loop, a	(000 110 0 x)
+
+  ldc, 511 (000 110 0 x)
+b  inc (000 111 1 x) //Init State
+ addr1 (000 011 1 x) //Row Addr
+ addr2 (000 001 1 x) //Col Addr
+ inc (000 001 1 L) //Test Q For L
+ inc (000 011 1 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)
+  incar1	(000 110 0 x)
+  incar2	(000 110 0 x)
+  loop, b	(000 110 0 x)
+//刷新
+// inc     (000 10x x x)
+// addr1   (000 11x x x)
+// inc     (000 01x x x)
+//读1
+  ldc, 511     (000 110 x x)//读取数据进行验证--背景
+c incar1	(000 110 x x) 
+  ldc, 511     (000 110 x x)
+d  inc (000 111 1 x) //Init State
+ addr1 (000 011 1 x) //Row Addr
+ addr2 (000 001 1 x) //Col Addr
+ inc (000 001 1 H) //Test Q For H
+ inc (000 011 1 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)
+  incar1	(000 110 x x)
+  incar2	(000 110 x x)
+  loop, d	(000 110 x x)
+//刷新
+// inc     (000 10x x x)
+// addr1   (000 11x x x)
+// inc     (000 01x x x)
+  loop, c  (000 110 x x)
+
+//补1
+  //incar1	(000 110 x x)
+
+  ldc, 511 (000 110 x x)
+e  inc (000 111 1 x) //Init State
+ addr1 (000 011 1 x) //Row Addr
+ addr2 (000 001 1 x) //Col Addr
+ inc (000 001 1 H) //Test Q For H
+ inc (000 011 1 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)
+  incar1	(000 110 x x)
+  incar2	(000 110 x x)
+  loop, e	(000 110 x x)
+
+    incar1	(000 110 x x) //转移到下一个对角线
+  loop, f	(000 110 x x)
+
+    
+ halt  (000 111 0 x) 
+end.
