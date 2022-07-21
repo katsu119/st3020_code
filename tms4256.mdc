@@ -3,12 +3,12 @@ mem_source_15;
 pindef
 
 addr(0..8) = i, hex, (1,2,3,4,5,6,7,8,9)
-ras_ = i, bin, (46)
-cas_ = i, bin, (45)
-w_ = i, bin, (44)
+ras_ = i, bin, (48)
+cas_ = i, bin, (47)
+w_ = i, bin, (46)
 
-d = i, bin, (35)
-q = o, bin, (36)
+d = i, bin, (45)
+q = o, bin, (44)
 
 main_f
 //ADDR1 as row
