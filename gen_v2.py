@@ -22,7 +22,7 @@ main_f
 //ADDR2 as colum
 """
 
-        self.file_end = """end."""
+        self.file_end = """\nend."""
         self.start_index = lambda num: '\nstart_index({})\n'.format(num)
         self.halt = '  \n halt  (000 111 0 x) \n'
         self.w0 = \
@@ -63,7 +63,7 @@ main_f
         self.incar1 = "	incar1	(000 110 0 x)\n"
         self.incar2 = "	incar2	(000 110 0 x)\n"
         self.code_other = \
-        '''
+            '''
 start_index(1)    //VOH
   //AAA RCW DQ
   inc   (000 110 1 x)
@@ -234,7 +234,6 @@ e ''' + self.r1 + '''
   '''
 
     def diagonal_line(self, line_n):
-
         # Write 0
         code_diag_write = \
             '''
@@ -369,7 +368,8 @@ lp2r{a} '''.format(a=x) + self.r0 + '''
         #
 
         # 一个bit的测试
-        test_one_bit = self.start_index(13) + self.ldar1(1) + self.ldar2(1) + self.w1 + self.r1 + self.w0 + self.r0 + self.halt
+        test_one_bit = self.start_index(13) + self.ldar1(1) + self.ldar2(
+            1) + self.w1 + self.r1 + self.w0 + self.r0 + self.halt
         self.f.write(test_one_bit)
         # 整体写1读1
         test_w1r1 = self.start_index(65) + code_all_clear(65) + code_all_read(65) + self.halt

@@ -34,6 +34,8 @@ void PASCAL TMS4256()
 	FORMAT(NRZ0, "1-9,44-48");
 
 #if 1
+	if(!RUN_PATTERN("one_bit",13,1,2,0))
+		BIN(2);
 	if(!RUN_PATTERN("ALL_W1R1",65,1,2,0))
 		BIN(2); 
 	if(!RUN_PATTERN("ALL_W0R0",66,1,2,0))

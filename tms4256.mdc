@@ -118,6 +118,40 @@ D1 INC  (000 010 0 x)
   JMP,D1 (000 010 0 x)  
   HALT  (000 010 0 x)
  
+start_index(13)
+ ldar1, 1 (000 111 1 x)
+ ldar2, 1 (000 111 1 x)
+ inc (000 110 1 x)
+ addr1 (000 010 1 x)
+ addr2 (000 000 1 x)
+ inc (000 000 1 x)
+ inc (000 011 1 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x) //Init State
+ addr1 (000 011 1 x) //Row Addr
+ addr2 (000 001 1 x) //Col Addr
+ inc (000 001 1 H) //Test Q For H
+ inc (000 011 1 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)
+ inc (000 110 1 x)
+ addr1 (000 010 0 x)
+ addr2 (000 000 0 x)
+ inc (000 000 0 x)
+ inc (000 011 0 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x) //Init State
+ addr1 (000 011 1 x) //Row Addr
+ addr2 (000 001 1 x) //Col Addr
+ inc (000 001 1 L) //Test Q For L
+ inc (000 011 1 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)
+  
+ halt  (000 111 0 x) 
+
 start_index(65)
 
   //清除所有，all set 1
@@ -133,6 +167,7 @@ lp2x65  inc (000 110 1 x)
  inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
+
   incar1	(000 110 0 x)
   incar2	(000 110 0 x)
   loop, lp2x65	(000 110 0 x)
@@ -152,6 +187,7 @@ lp2r65  inc (000 111 1 x) //Init State
  inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
+
   incar1	(000 110 0 x)
   incar2	(000 110 0 x)
   loop, lp2r65	(000 110 0 x)
@@ -175,6 +211,7 @@ lp2x66  inc (000 110 1 x)
  inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
+
   incar1	(000 110 0 x)
   incar2	(000 110 0 x)
   loop, lp2x66	(000 110 0 x)
@@ -194,6 +231,7 @@ lp2r66  inc (000 111 1 x) //Init State
  inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
+
   incar1	(000 110 0 x)
   incar2	(000 110 0 x)
   loop, lp2r66	(000 110 0 x)
@@ -218,6 +256,7 @@ lp2  inc (000 110 1 x)
  inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
+
   incar1	(000 110 0 x)
   incar2	(000 110 0 x)
   loop, lp2	(000 110 0 x)
@@ -238,6 +277,7 @@ a  inc (000 110 1 x)
  inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
+
   incar1	(000 110 0 x)
   incar2	(000 110 0 x)
   loop, a	(000 110 0 x)
@@ -250,6 +290,7 @@ b  inc (000 111 1 x) //Init State
  inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
+
   incar1	(000 110 0 x)
   incar2	(000 110 0 x)
   loop, b	(000 110 0 x)
@@ -268,6 +309,7 @@ d  inc (000 111 1 x) //Init State
  inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
+
   incar1	(000 110 x x)
   incar2	(000 110 x x)
   loop, d	(000 110 x x)
@@ -288,6 +330,7 @@ e  inc (000 111 1 x) //Init State
  inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
+
   incar1	(000 110 x x)
   incar2	(000 110 x x)
   loop, e	(000 110 x x)
