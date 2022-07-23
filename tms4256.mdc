@@ -20,7 +20,6 @@ start_index(0)
  addr1 (000 010 1 x) //Row Addr
  addr2 (000 000 1 x) //Col Addr
  inc (000 000 1 x) //Write D=1
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -28,14 +27,12 @@ start_index(0)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 H) //Test Q =? H
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 0 x) //Row Addr
  addr2 (000 000 0 x) //Col Addr
  inc (000 000 0 x) //Write D=0
- inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -43,14 +40,12 @@ start_index(0)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 L) //Test Q =? L
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 1 x) //Row Addr
  addr2 (000 000 1 x) //Col Addr
  inc (000 000 1 x) //Write D=1
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -58,14 +53,12 @@ start_index(0)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 H) //Test Q =? H
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 0 x) //Row Addr
  addr2 (000 000 0 x) //Col Addr
  inc (000 000 0 x) //Write D=0
- inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -73,14 +66,12 @@ start_index(0)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 L) //Test Q =? L
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 1 x) //Row Addr
  addr2 (000 000 1 x) //Col Addr
  inc (000 000 1 x) //Write D=1
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -88,14 +79,12 @@ start_index(0)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 H) //Test Q =? H
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 0 x) //Row Addr
  addr2 (000 000 0 x) //Col Addr
  inc (000 000 0 x) //Write D=0
- inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -103,14 +92,12 @@ start_index(0)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 L) //Test Q =? L
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 1 x) //Row Addr
  addr2 (000 000 1 x) //Col Addr
  inc (000 000 1 x) //Write D=1
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -118,14 +105,12 @@ start_index(0)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 H) //Test Q =? H
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 0 x) //Row Addr
  addr2 (000 000 0 x) //Col Addr
  inc (000 000 0 x) //Write D=0
- inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -133,14 +118,12 @@ start_index(0)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 L) //Test Q =? L
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 1 x) //Row Addr
  addr2 (000 000 1 x) //Col Addr
  inc (000 000 1 x) //Write D=1
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -148,14 +131,12 @@ start_index(0)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 H) //Test Q =? H
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 0 x) //Row Addr
  addr2 (000 000 0 x) //Col Addr
  inc (000 000 0 x) //Write D=0
- inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -163,14 +144,12 @@ start_index(0)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 L) //Test Q =? L
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 1 x) //Row Addr
  addr2 (000 000 1 x) //Col Addr
  inc (000 000 1 x) //Write D=1
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -178,14 +157,12 @@ start_index(0)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 H) //Test Q =? H
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 0 x) //Row Addr
  addr2 (000 000 0 x) //Col Addr
  inc (000 000 0 x) //Write D=0
- inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -193,14 +170,12 @@ start_index(0)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 L) //Test Q =? L
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 1 x) //Row Addr
  addr2 (000 000 1 x) //Col Addr
  inc (000 000 1 x) //Write D=1
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -208,14 +183,12 @@ start_index(0)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 H) //Test Q =? H
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 0 x) //Row Addr
  addr2 (000 000 0 x) //Col Addr
  inc (000 000 0 x) //Write D=0
- inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -223,14 +196,12 @@ start_index(0)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 L) //Test Q =? L
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 1 x) //Row Addr
  addr2 (000 000 1 x) //Col Addr
  inc (000 000 1 x) //Write D=1
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -238,14 +209,12 @@ start_index(0)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 H) //Test Q =? H
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 0 x) //Row Addr
  addr2 (000 000 0 x) //Col Addr
  inc (000 000 0 x) //Write D=0
- inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -253,14 +222,12 @@ start_index(0)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 L) //Test Q =? L
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 1 x) //Row Addr
  addr2 (000 000 1 x) //Col Addr
  inc (000 000 1 x) //Write D=1
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -268,14 +235,12 @@ start_index(0)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 H) //Test Q =? H
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 0 x) //Row Addr
  addr2 (000 000 0 x) //Col Addr
  inc (000 000 0 x) //Write D=0
- inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -283,14 +248,12 @@ start_index(0)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 L) //Test Q =? L
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 1 x) //Row Addr
  addr2 (000 000 1 x) //Col Addr
  inc (000 000 1 x) //Write D=1
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -298,14 +261,12 @@ start_index(0)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 H) //Test Q =? H
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 0 x) //Row Addr
  addr2 (000 000 0 x) //Col Addr
  inc (000 000 0 x) //Write D=0
- inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -313,7 +274,6 @@ start_index(0)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 L) //Test Q =? L
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
   
@@ -326,7 +286,6 @@ start_index(1)
  addr1 (000 010 1 x) //Row Addr
  addr2 (000 000 1 x) //Col Addr
  inc (000 000 1 x) //Write D=1
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -334,14 +293,12 @@ start_index(1)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 L) //Test Q =? L
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 0 x) //Row Addr
  addr2 (000 000 0 x) //Col Addr
  inc (000 000 0 x) //Write D=0
- inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -349,14 +306,12 @@ start_index(1)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 H) //Test Q =? H
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 1 x) //Row Addr
  addr2 (000 000 1 x) //Col Addr
  inc (000 000 1 x) //Write D=1
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -364,14 +319,12 @@ start_index(1)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 L) //Test Q =? L
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 0 x) //Row Addr
  addr2 (000 000 0 x) //Col Addr
  inc (000 000 0 x) //Write D=0
- inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -379,14 +332,12 @@ start_index(1)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 H) //Test Q =? H
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 1 x) //Row Addr
  addr2 (000 000 1 x) //Col Addr
  inc (000 000 1 x) //Write D=1
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -394,14 +345,12 @@ start_index(1)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 L) //Test Q =? L
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 0 x) //Row Addr
  addr2 (000 000 0 x) //Col Addr
  inc (000 000 0 x) //Write D=0
- inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -409,14 +358,12 @@ start_index(1)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 H) //Test Q =? H
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 1 x) //Row Addr
  addr2 (000 000 1 x) //Col Addr
  inc (000 000 1 x) //Write D=1
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -424,14 +371,12 @@ start_index(1)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 L) //Test Q =? L
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 0 x) //Row Addr
  addr2 (000 000 0 x) //Col Addr
  inc (000 000 0 x) //Write D=0
- inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -439,14 +384,12 @@ start_index(1)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 H) //Test Q =? H
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 1 x) //Row Addr
  addr2 (000 000 1 x) //Col Addr
  inc (000 000 1 x) //Write D=1
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -454,14 +397,12 @@ start_index(1)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 L) //Test Q =? L
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 0 x) //Row Addr
  addr2 (000 000 0 x) //Col Addr
  inc (000 000 0 x) //Write D=0
- inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -469,14 +410,12 @@ start_index(1)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 H) //Test Q =? H
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 1 x) //Row Addr
  addr2 (000 000 1 x) //Col Addr
  inc (000 000 1 x) //Write D=1
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -484,14 +423,12 @@ start_index(1)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 L) //Test Q =? L
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 0 x) //Row Addr
  addr2 (000 000 0 x) //Col Addr
  inc (000 000 0 x) //Write D=0
- inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -499,14 +436,12 @@ start_index(1)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 H) //Test Q =? H
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 1 x) //Row Addr
  addr2 (000 000 1 x) //Col Addr
  inc (000 000 1 x) //Write D=1
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -514,14 +449,12 @@ start_index(1)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 L) //Test Q =? L
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 0 x) //Row Addr
  addr2 (000 000 0 x) //Col Addr
  inc (000 000 0 x) //Write D=0
- inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -529,14 +462,12 @@ start_index(1)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 H) //Test Q =? H
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 1 x) //Row Addr
  addr2 (000 000 1 x) //Col Addr
  inc (000 000 1 x) //Write D=1
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -544,14 +475,12 @@ start_index(1)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 L) //Test Q =? L
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 0 x) //Row Addr
  addr2 (000 000 0 x) //Col Addr
  inc (000 000 0 x) //Write D=0
- inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -559,14 +488,12 @@ start_index(1)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 H) //Test Q =? H
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 1 x) //Row Addr
  addr2 (000 000 1 x) //Col Addr
  inc (000 000 1 x) //Write D=1
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -574,14 +501,12 @@ start_index(1)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 L) //Test Q =? L
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 0 x) //Row Addr
  addr2 (000 000 0 x) //Col Addr
  inc (000 000 0 x) //Write D=0
- inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -589,14 +514,12 @@ start_index(1)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 H) //Test Q =? H
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 1 x) //Row Addr
  addr2 (000 000 1 x) //Col Addr
  inc (000 000 1 x) //Write D=1
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -604,14 +527,12 @@ start_index(1)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 L) //Test Q =? L
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
  addr1 (000 010 0 x) //Row Addr
  addr2 (000 000 0 x) //Col Addr
  inc (000 000 0 x) //Write D=0
- inc (000 011 0 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x) //Init State
@@ -619,7 +540,6 @@ start_index(1)
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 H) //Test Q =? H
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)
   

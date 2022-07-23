@@ -31,7 +31,6 @@ main_f
  addr1 (000 010 {d} x) //Row Addr
  addr2 (000 000 {d} x) //Col Addr
  inc (000 000 {d} x) //Write D={d}
- inc (000 011 {d} x)
  inc (000 111 1 x)
  inc (000 111 1 x)\n'''.format(d=x)
         self.r = \
@@ -40,7 +39,6 @@ main_f
  addr2 (000 001 1 x) //Col Addr
  inc (000 001 1 x) //Wait One Period
  inc (000 001 1 {q}) //Test Q =? {q}
- inc (000 011 1 x)
  inc (000 111 1 x)
  inc (000 111 1 x)\n'''.format(q='H' if x == 1 else 'L')
 
