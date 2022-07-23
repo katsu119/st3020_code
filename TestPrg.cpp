@@ -5,7 +5,7 @@
 #include "data.h"
 #include "math.h"
 
-#define INDEX_VOH 4
+
 void PASCAL TMS4256()
 {
 	//48 47 46 45 44
@@ -15,7 +15,6 @@ void PASCAL TMS4256()
 #if 1
 	SET_DPS(1,0,V,30,MA);
 	PMU_CONDITIONS(FIMV,-0.1,MA,2,V);
-	//if(!PMU_MEASURE("1-9,35-36,44-46",5,"CON_",V,-0.1,-1.9))
 	if(!PMU_MEASURE("1-9,44-48",5,"CON_",V,-0.1,-1.9))
 		BIN(1);
 #endif
@@ -34,14 +33,14 @@ void PASCAL TMS4256()
 	FORMAT(NRZ0, "1-9,44-48");
 
 #if 1
-	if(!RUN_PATTERN("one_bit",13,1,2,0))
+	if(!RUN_PATTERN("one_bit",0,1,2,0))
 		BIN(2);
-	if(!RUN_PATTERN("ALL_W1R1",65,1,2,0))
-		BIN(2); 
-	if(!RUN_PATTERN("ALL_W0R0",66,1,2,0))
-		BIN(2); 
-	if(!RUN_PATTERN("FUN_LOOP",67,1,2,0))
-		BIN(2); 
+//	if(!RUN_PATTERN("ALL_W1R1",65,1,2,0))
+//		BIN(2);
+//	if(!RUN_PATTERN("ALL_W0R0",66,1,2,0))
+//		BIN(2);
+//	if(!RUN_PATTERN("FUN_LOOP",67,1,2,0))
+//		BIN(2);
 #endif
 
 #if 0
