@@ -1,0 +1,33 @@
+@w0
+ inc (000 110 1 x)
+ addr1 (000 010 0 x)
+ addr2 (000 000 0 x)
+ inc (000 000 0 x)
+ inc (000 011 0 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)\n
+
+@w1
+ inc (000 110 1 x)
+ addr1 (000 010 1 x)
+ addr2 (000 000 1 x)
+ inc (000 000 1 x)
+ inc (000 011 1 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)\n
+@r0
+ inc (000 111 1 x) //Init State
+ addr1 (000 011 1 x) //Row Addr
+ addr2 (000 001 1 x) //Col Addr
+ inc (000 001 1 L) //Test Q For L
+ inc (000 011 1 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)\n
+@r1
+ inc (000 111 1 x) //Init State
+ addr1 (000 011 1 x) //Row Addr
+ addr2 (000 001 1 x) //Col Addr
+ inc (000 001 1 H) //Test Q For H
+ inc (000 011 1 x)
+ inc (000 111 1 x)
+ inc (000 111 1 x)\n
