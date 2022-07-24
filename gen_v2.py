@@ -66,7 +66,8 @@ lp_x{num} inc (000 111 1 x)\n'''.format(num=num, loop_times=loop_times) + \
         diag_r0 = self.comment("Diag Read 0") + self.loop('diag_r0', mono_r(0))
         # Background Read 1
         bg_r1 = self.comment("Background Read 1") + self.incar1
-        bg_r1 += self.loop('bg_r1', mono_r(1), 510)
+        bg_read_tmp = self.loop('bg_lp_inner', mono_r(1))
+        bg_r1 += self.loop('bg_r1', bg_read_tmp + self.incar1, 510)
         # Background reset - diag write 1
         bg_w1 = self.comment("Background Reset") + self.loop('bg_w1', mono_w(1))
         # INCAR next diag
